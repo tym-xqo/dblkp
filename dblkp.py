@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 def get_server_list():
     with open("servers.md") as f:
         svrs = f.readlines()
-    svrs = [i for i in svrs if "169" in i][2:]
+    svrs = [i for i in svrs if "169" in i]
     svrs = [[i.strip() for i in l] for l in [i.split("|")[1:4] for i in svrs]]
     return svrs
 
@@ -27,7 +27,7 @@ def handle():
     db = args.db
     ip = get_ip(db)
     if db:
-        print(f"{db}: {ip}")
+        print("{db}: {ip}".format(db=db, ip=ip))
         return
     print(ip)
 
