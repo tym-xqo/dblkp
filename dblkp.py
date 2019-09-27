@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -
+import os
 from argparse import ArgumentParser
+
+LISTPATH = os.path.dirname(os.path.realpath(__file__))
 
 
 def get_server_list():
-    with open("servers.md") as f:
+    with open("{}/servers.md".format(LISTPATH)) as f:
         svrs = f.readlines()
     svrs = [i for i in svrs if "169" in i]
     svrs = [[i.strip() for i in l] for l in [i.split("|")[1:4] for i in svrs]]
