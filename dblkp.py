@@ -16,6 +16,7 @@ def get_server_list():
 
 def get_ip(db):
     # TODO: allow choice between public or private IP
+    # TODO: handle bogus db name
     dbs = get_server_list()
     if not db:
         return "\n".join([" | ".join(i) for i in dbs])
